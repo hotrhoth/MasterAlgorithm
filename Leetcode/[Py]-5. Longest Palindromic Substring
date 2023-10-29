@@ -1,0 +1,18 @@
+class Solution:
+    def longestPalindrome(self, s):
+        def expand(i,j):
+            while i >= 0 and j < len(s) and s[i] == s[j] :
+                i -= 1
+                j += 1
+            return s[i+1:j] 
+
+        result = ""
+        for m in range(len(s)):
+            sub1 = expand(m, m)
+            if len(sub1) > len(result):
+                result = sub1
+            sub2 = expand(m, m + 1)
+            if len(sub2) > len(result):
+                result = sub2
+                
+        return result
