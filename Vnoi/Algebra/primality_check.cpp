@@ -35,10 +35,6 @@ bool primeCheck(int n) {
         if(n % i == 0) return false; 
     }
     return true;
-    
-
-    
-    
 }
 
 void primeFactorization(int n) {
