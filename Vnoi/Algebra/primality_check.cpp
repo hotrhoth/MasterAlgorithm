@@ -95,7 +95,7 @@ bool isProbabyPrime(int n) {
     Số các số Carmichael nhỏ hơn 1e18 là 1401644
 */
 
-// Algo Ranbin-Miler
+// Algo Ranbin-Miller
 /*
     Với mọi số nguyên dương x, a^(n-1) = 1 (mod n) -> n-1 = 2^k * m (m le)
     ta tìm được duy nhất hai số tự nhiên k, m sao cho x = 2^k * m (m le)
