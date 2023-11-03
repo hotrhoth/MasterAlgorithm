@@ -1,0 +1,33 @@
+class Solution {
+    bool check(int mid, const vector<int> weights, int days) {
+        int curWeight = 0; --days; // ngay dau tien luon lay nen phai tru
+        for(int i=0; i<weights.size(); i++) {
+            if(weights[i] + curWeight <= mid)
+                curWeight += weights[i];
+            else {
+                --days;
+                curWeight = weights[i];
+            }
+        }
+        return days >= 0;
+    }
+public:
+    int shipWithinDays(vector<int>& weights, int days) {
+        int lo = 0, hi = 0;
+        for(int i=0; i<weights.size(); i++) {
+            lo = max(lo, weights[i]);
+            hi += weights[i];
+        }
+
+        // mid la capacity
+        // lo la smallest weight true
+
+        while(lo < hi) {
+            int mid = lo + (hi-lo) / 2;
+            if(check(mid, weights, days)) hi = mid;
+            else lo = mid + 1;
+        }
+
+        return lo;
+    }
+};
